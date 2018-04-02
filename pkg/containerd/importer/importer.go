@@ -203,7 +203,7 @@ func makeDockerSchema2Manifest(mfst manifestDotJSON, config imageConfig, layers 
 	for _, f := range mfst.Layers {
 		desc, ok := layers[f]
 		if !ok {
-			return nil, errors.Errorf("layer %q not found", f)
+			continue
 		}
 		manifest.Layers = append(manifest.Layers, desc)
 	}
